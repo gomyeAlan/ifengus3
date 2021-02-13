@@ -13,7 +13,7 @@ struct ifengus30App: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppMainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
