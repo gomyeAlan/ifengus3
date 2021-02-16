@@ -1,41 +1,42 @@
 //
-//  ChannelManager.swift
-//  ifengus_v20
+//  SpecialManager.swift
+//  ifengus30
 //
-//  Created by Alan Yang on 1/17/21.
+//  Created by Winda Wei on 2/15/21.
 //
 
 import Foundation
 
 
-// 栏目
-struct isresponseChannel: Codable {
+// 专题
+
+struct isresponseSpecial: Codable {
     let code: Int
     let msg: String
     let time: String
-    let data: [Channels]?
+    let data: [Specials]?
 }
 
-
-class ChannelManager :ObservableObject  {
+class SpecialManager: ObservableObject  {
     
     //建立一个集合
-    @Published var channels = [Channels]()
-    var indices: Int = 0
+    @Published var specials = [Specials]()
+
+//    var indices: Int = 0
     
     init(){
-        getChannelName(pid:0)
+        getSpecialslName(pid:0)
     }
     
-    func getChannelName(pid:Int) {
-        let url = URL(string: "https://ifengus.com/api/cms/getsontree?pid=0&type=channel&apitoken=hiRNzRjQ!x2x@H@X")!
+    func getSpecialslName(pid:Int) {
+        let url = URL(string: "https://ifengus.com/api/cms/getspeciallist?apitoken=hiRNzRjQ!x2x@H@X")!
         URLSession.shared.dataTask(with: url) {(data,response,error) in
             do {
                 if let d = data {
-                    let decodedLists = try JSONDecoder().decode(isresponseChannel.self, from: d)
+                    let decodedLists = try JSONDecoder().decode(isresponseSpecial.self, from: d)
                     if (decodedLists.code == 1){
                         DispatchQueue.main.async {
-                            self.channels = decodedLists.data!
+                            self.specials = decodedLists.data!
                         }
                     } else {
                         print("data build error")
@@ -47,5 +48,5 @@ class ChannelManager :ObservableObject  {
                 print ("Error")
             }
         }.resume()
-   }
+    }
 }

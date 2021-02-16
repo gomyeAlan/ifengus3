@@ -24,19 +24,23 @@ struct Channels: Codable, Identifiable {
 }
 
 // 专题
-struct Specials: Codable, Identifiable {
-   public var id: Int
-   public var title: String
-   public var image: String
-   public var intro: String
+struct Specials: Codable, Identifiable, Hashable {
+    var id: Int
+    var title: String
+    var image: String
+    var banner: String
+    var status: String
+    var diyname: String?
+    var description: String?
+    var intro: String?
    
-   enum CodingKeys: String, CodingKey {
-          case id = "id"
-          case title = "title"
-          case image = "image"
-          case intro = "intro"
-   
-       }
+//   enum CodingKeys: String, CodingKey {
+//          case id = "id"
+//          case title = "title"
+//          case image = "image"
+//          case intro = "intro"
+//
+//       }
 }
 
 //获取Config文件中的常量
