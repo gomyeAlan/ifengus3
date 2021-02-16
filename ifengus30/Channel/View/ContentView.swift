@@ -19,6 +19,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
         VStack{
+            
+//            ProgressView()
+//            // fetching Data...
+//                .onAppear(perform: {
+//                    jsonModel.fetchData(context: context)
+//                })
+//            
                 // checking if core data exists
             if results.isEmpty{
                 
@@ -45,7 +52,7 @@ struct ContentView: View {
                     List(results){video in
                         // display fetched JSON Data...
                         //CardView(fetchedData : video)
-                        Text(String(video.id))
+                        Text(String(video.image!))
                     }
                     .listStyle(InsetGroupedListStyle())
                 NavigationLink(destination: AppMainView()) {

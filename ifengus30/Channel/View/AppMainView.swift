@@ -10,7 +10,8 @@ import SwiftUI
 
 struct AppMainView: View {
   var body: some View {
-    
+   // NavigationView{
+
     TabView {
         TodayTabView()
         .tabItem {
@@ -42,10 +43,9 @@ struct AppMainView: View {
 //          Text("Arcade")
 //        }
       
-
+   
     }
-    .navigationBarTitle("")
-    .navigationBarHidden(true)
+ 
   }
   
 }

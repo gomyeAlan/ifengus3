@@ -38,6 +38,7 @@ class JSONViewModel: ObservableObject {
             entity.title = data.title
         //    entity.channel_id = Int16(data.channel_id)
             entity.url = data.url
+            print(data.image)
             entity.image = data.image
         }
         
@@ -45,6 +46,7 @@ class JSONViewModel: ObservableObject {
         do{
             try context.save()
             print("success")
+
         }
         catch{
             print(error.localizedDescription)
@@ -81,6 +83,7 @@ class JSONViewModel: ObservableObject {
                     DispatchQueue.main.async {
                     self.topAds = archives.data!
                     self.saveData(context: context)
+
                     }
           
                 }else {
