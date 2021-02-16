@@ -13,28 +13,17 @@ struct TodayTabView: View {
     @State var text: String = ""
 
     var body: some View {
-    
-    NavigationView{
-    ScrollView {
-        CustomSearchBar(text: $text)
-        //setupCurrentDate(by: 0)
-        AppCarouseTodayBlock()
-        
-        //        ChannelTopAdsBlock()
-        }
-//    .onAppear{
-//        print("scrollview======")
-  
-    .navigationBarTitle("Today")
-    .navigationBarItems(leading: SearchBar(text: $text), trailing: AccountButton(isAccountViewPresented: $isAccountViewPresented))
-    }
-    //  }    .navigationViewStyle(StackNavigationViewStyle())
-
+            ScrollView {
+//                setupCurrentDate(by: 0)
+                CustomSearchBar(text: $text)
+                AppCarouseTodayBlock()
+            }.onAppear{
+                print("scrollview======")
+            }
+            .navigationBarTitle("Today")
+//            .navigationBarItems(leading: SearchBar(text: $text), trailing: AccountButton(isAccountViewPresented: $isAccountViewPresented))
     }
 }
 
-struct TodayTabView_Previews: PreviewProvider {
-  static var previews: some View {
-    TodayTabView()
-  }
-}
+
+

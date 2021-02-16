@@ -10,51 +10,38 @@ import SwiftUI
 
 struct AppMainView: View {
   var body: some View {
-   // NavigationView{
-
-    TabView {
-        TodayTabView()
-        .tabItem {
-          Image(systemName: "note")
-          Text("New")
+    NavigationView{
+        TabView {
+            TodayTabView()
+                .tabItem {
+                    Image(systemName: "note")
+                    Text("New")
+                }
+            SearchTabView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
+//            FavoriteTabView()
+//                .tabItem {
+//                    Image(systemName: "heart")
+//                    Text("Favorite")
+//                }
+//            AppsTabView()
+//                .tabItem {
+//                    Image(systemName: "person")
+//                    Text("Profile")
+//                }
+//            ArcadeTabView()
+//                .tabItem {
+//                    Image(systemName: "gamecontroller.fill")
+//                    Text("Arcade")
+//                }
         }
-        
-      SearchTabView()
-          .tabItem {
-            Image(systemName: "magnifyingglass")
-            Text("Search")
-          }
-//
-//      FavoriteTabView()
-//        .tabItem {
-//          Image(systemName: "heart")
-//          Text("Favorite")
-//        }
-      
-//      AppsTabView()
-//        .tabItem {
-//          Image(systemName: "person")
-//          Text("Profile")
-//        }
-//
-//      ArcadeTabView()
-//        .tabItem {
-//          Image(systemName: "gamecontroller.fill")
-//          Text("Arcade")
-//        }
-      
-   
-    }
- 
+    }.navigationViewStyle(StackNavigationViewStyle())
   }
-  
 }
 
 
-struct AppMainView_Previews: PreviewProvider {
-  
-  static var previews: some View {
-    AppMainView()
-  }
-  
-}
+
+
