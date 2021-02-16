@@ -14,7 +14,7 @@ struct TodayTabView: View {
 
     var body: some View {
     
-   // NavigationView{
+    NavigationView{
     ScrollView {
         CustomSearchBar(text: $text)
         //setupCurrentDate(by: 0)
@@ -24,10 +24,10 @@ struct TodayTabView: View {
         }
 //    .onAppear{
 //        print("scrollview======")
-//    }
-    .navigationBarTitle("Search")
+  
+    .navigationBarTitle("Today")
     .navigationBarItems(leading: SearchBar(text: $text), trailing: AccountButton(isAccountViewPresented: $isAccountViewPresented))
-       
+    }
     //  }    .navigationViewStyle(StackNavigationViewStyle())
 
     }

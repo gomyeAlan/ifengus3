@@ -25,6 +25,8 @@
 		155499B025D3424100B597DD /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 155499AF25D3424100B597DD /* Config.xcconfig */; };
 		1584CBEF25D9863D005C1F98 /* JSONViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584CBEE25D9863D005C1F98 /* JSONViewModel.swift */; };
 		1584CBF325DA2FD6005C1F98 /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584CBF225DA2FD6005C1F98 /* ArchiveModel.swift */; };
+		1586295125DB7FE900FAD117 /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586295025DB7FE900FAD117 /* ArchiveView.swift */; };
+		1586295425DB80D400FAD117 /* JSONArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586295325DB80D400FAD117 /* JSONArchiveModel.swift */; };
 		1597217925CFB51D003EAA65 /* ifengus30App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597217825CFB51D003EAA65 /* ifengus30App.swift */; };
 		1597217B25CFB51D003EAA65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597217A25CFB51D003EAA65 /* ContentView.swift */; };
 		1597217D25CFB520003EAA65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1597217C25CFB520003EAA65 /* Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		155499AF25D3424100B597DD /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		1584CBEE25D9863D005C1F98 /* JSONViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewModel.swift; sourceTree = "<group>"; };
 		1584CBF225DA2FD6005C1F98 /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
+		1586295025DB7FE900FAD117 /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
+		1586295325DB80D400FAD117 /* JSONArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONArchiveModel.swift; sourceTree = "<group>"; };
 		1597217525CFB51D003EAA65 /* ifengus30.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ifengus30.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1597217825CFB51D003EAA65 /* ifengus30App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifengus30App.swift; sourceTree = "<group>"; };
 		1597217A25CFB51D003EAA65 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				1597219025CFBA1A003EAA65 /* TodayTabView.swift */,
 				154FA8B025D44BFD00B7F6DE /* SpecialListView.swift */,
 				159721F625CFBB03003EAA65 /* FavoriteTabView.swift */,
+				1586295025DB7FE900FAD117 /* ArchiveView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				1554993E25D1CBC900B597DD /* ImagesManager.swift */,
 				1584CBEE25D9863D005C1F98 /* JSONViewModel.swift */,
 				1584CBF225DA2FD6005C1F98 /* ArchiveModel.swift */,
+				1586295325DB80D400FAD117 /* JSONArchiveModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 				1597218225CFB520003EAA65 /* Persistence.swift in Sources */,
 				159721E025CFBAD2003EAA65 /* GetButton.swift in Sources */,
 				159721C025CFBA68003EAA65 /* SectionHeaderBlock.swift in Sources */,
+				1586295125DB7FE900FAD117 /* ArchiveView.swift in Sources */,
 				159721B125CFBA68003EAA65 /* QuickLinksBlock.swift in Sources */,
 				159721F725CFBB03003EAA65 /* SearchTabView.swift in Sources */,
 				153CDE3425D765CE0066F115 /* SpecialListBlockSmall.swift in Sources */,
@@ -591,6 +598,7 @@
 				159721EA25CFBAD2003EAA65 /* InAppPurchasesLabel.swift in Sources */,
 				1597220725D0A3D2003EAA65 /* ChannelDate.swift in Sources */,
 				159721C525CFBA68003EAA65 /* AppMedium1Block.swift in Sources */,
+				1586295425DB80D400FAD117 /* JSONArchiveModel.swift in Sources */,
 				1597217925CFB51D003EAA65 /* ifengus30App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,7 +18,9 @@ struct SearchTabView: View {
     @Namespace var name
     
   var body: some View {
+    NavigationView{
     VStack{
+        
         CustomSearchBar(text: $text)
 
         HStack(spacing: 0){
@@ -87,7 +89,7 @@ struct SearchTabView: View {
                           }
                       }
                   }
-        .navigationBarTitle("Search")
+        .navigationBarTitle("Menu")
         .navigationBarItems(leading: SearchBar(text: $text), trailing: AccountButton(isAccountViewPresented: $isAccountViewPresented))
 
     
@@ -100,8 +102,7 @@ struct SearchTabView: View {
                   }
     
     }
-    
-    
+    }
     
   }
 }

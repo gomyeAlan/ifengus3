@@ -9,6 +9,37 @@ import SwiftUI
 
 struct ArchiveModel: Codable, Identifiable,  Hashable {
     var id: Int
+    var user_id: Int
+    var channel_id: Int
+    var model_id: Int
+    var special_id: Int
+    var title: String
+    var style: String
+    var flag: String
+    var image: String
+    var keywords: String
+    var description: String
+    var tags: String
+    var weigh: Int
+    var views: Int
+    var comments: Int
+    var likes: Int
+    var dislikes: Int
+    var diyname: String
+    var createtime: Date
+//    var updatetime: Date
+    var publishtime: Date
+//    var deletetime: Date
+    var memo: String
+    var status: String
+    var content: String
+    var author: String
+//    var price: Double
+    var channel: ChannelModel
+}
+
+struct ArchiveListModel: Codable, Identifiable,  Hashable {
+    var id: Int
     var title: String
     var image: String
     var description: String
@@ -22,6 +53,14 @@ struct ArchiveModel: Codable, Identifiable,  Hashable {
     var fullurl: String
     var likeratio: Int
     var create_date: String
+}
+
+struct ChannelModel: Codable, Identifiable,  Hashable {
+    var id: Int
+    var name: String
+    var image: String
+    var diyname: String
+    var items: Int
 }
 
 //无限加载扩展
@@ -48,11 +87,11 @@ struct responsedataArchive: Codable {
     let code: Int
     let msg: String
     let time: String
-    let data: [ArchiveModel]?
+    let data: [ArchiveListModel]?
 }
 
 class JSONArchivesModel: ObservableObject {
-    @Published var archiveists: [ArchiveModel] = []
+    @Published var archiveists: [ArchiveListModel] = []
     
 //    func fetchSessionData(archivesCompletionHandler: @escaping ([ArchiveModel]?, NetworeError?) -> Void) {
     func fetchSessionData(cid:Int, page: Int) {

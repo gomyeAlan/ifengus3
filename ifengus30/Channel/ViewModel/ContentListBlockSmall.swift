@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentListBlockSmall: View {
     @StateObject private var imageLoader = CoverImageLoader()
-    var archive: ArchiveModel
+    @State var archive: ArchiveListModel
     
   var body: some View {
 
@@ -18,7 +18,7 @@ struct ContentListBlockSmall: View {
 
         if imageLoader.image != nil {
             
-            NavigationLink(destination: WebView( channelUrl: archive.fullurl)){
+            NavigationLink(destination: ArchiveView(cid:self.$archive.id)){
                          
             Image(uiImage: imageLoader.image!)
                 .resizable()
@@ -43,7 +43,7 @@ struct ContentListBlockSmall: View {
 
         VStack(alignment: .leading) {
          
-            NavigationLink(destination: WebView( channelUrl: archive.fullurl), label:{
+            NavigationLink(destination: ArchiveView(cid:self.$archive.id), label:{
                 Text("\(archive.title)")
                          })
             .font(.system(size: 20))
