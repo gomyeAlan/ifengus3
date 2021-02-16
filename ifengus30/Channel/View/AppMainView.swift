@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-
 struct AppMainView: View {
+    @State var isAccountViewPresented = false
+    @State var text: String = ""
+    
   var body: some View {
     NavigationView{
         TabView {
@@ -37,8 +39,9 @@ struct AppMainView: View {
 //                    Image(systemName: "gamecontroller.fill")
 //                    Text("Arcade")
 //                }
-        }
-    }.navigationViewStyle(StackNavigationViewStyle())
+        }.navigationViewStyle(StackNavigationViewStyle())
+         .navigationBarItems(trailing: AccountButton(isAccountViewPresented: $isAccountViewPresented))
+    }
   }
 }
 

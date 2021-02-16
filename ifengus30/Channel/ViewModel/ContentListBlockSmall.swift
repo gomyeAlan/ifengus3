@@ -70,7 +70,7 @@ struct ContentListBlockSmall: View {
         .foregroundColor(.white)
  
     }
-    .frame(width: UIScreen.main.bounds.width - 32, height: UIScreen.main.bounds.width * 0.75)
+     .frame(width: UIScreen.main.bounds.width - 32, height: UIScreen.main.bounds.width * 0.75)
      .background(Color(UIColor.systemGray2))
      .clipShape(RoundedRectangle(cornerRadius: 20))
      .padding(.vertical, 8)
