@@ -10,9 +10,9 @@ import SwiftUI
 
 struct AppMainView: View {
   var body: some View {
+    
     TabView {
         TodayTabView()
-        //    ChannelTopAdsBlock()
         .tabItem {
           Image(systemName: "note")
           Text("New")
@@ -44,6 +44,8 @@ struct AppMainView: View {
       
 
     }
+    .navigationBarTitle("")
+    .navigationBarHidden(true)
   }
   
 }

@@ -9,60 +9,67 @@ import SwiftUI
 
 
 struct ChannelTopAdsBlock: View {
+    @StateObject private var imageLoaderTopAds = CoverImageLoader()
+    @StateObject var jsonModel = JSONViewModel()
+    @Environment (\.managedObjectContext) var context
     
-  //  @ObservedObject var contentTopAds = ContentTopAds()
-    @State var ads: [TopAds] = []
-//    @State var forcount:Int = 1
+    
+    // Fetching Data From Core Data...
+    @FetchRequest(entity: Topadsinfo.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Topadsinfo.title, ascending: true)] ) var results : FetchedResults<Topadsinfo>
+    
+
   var body: some View {
    // let topAdscount : Int = contentTopAds.topAds.count
    //Text(String(contentTopAds.topAds.count))
-    if self.ads.count != 0 {
+    
     TabView {
         
-//        ForEach(0 ..< 3) { topAd in
-//        ForEach(0 ..< self.forcount){ topAd in
-        //Text(String( contentTopAds.topAds.count))
-        
+        ForEach(results){topAd in
 
-        ForEach(self.ads){ topAd in
         VStack {
           Divider()
           VStack(alignment: .leading) {
+            
+            if imageLoaderTopAds.image != nil {
+            Image(uiImage: imageLoaderTopAds.image!)
+                .resizable()
+                .scaledToFill()
+                .frame(width: UIScreen.main.bounds.width-32, height: UIScreen.main.bounds.width * 0.5)
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(5)
+                .clipped()
+            } else {
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .foregroundColor(.secondary)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 0.5)
+            }
+            
             Text("UPDATE")
               .bold()
               .foregroundColor(.blue)
               .font(.footnote)
 
-//              Text(topAd.title)
+            Text(topAd.title!)
               .font(.title3)
 
             Text("Description")
               .foregroundColor(.secondary)
           }
           .frame(maxWidth: .infinity, alignment: .leading)
-          RoundedRectangle(cornerRadius: 12, style: .continuous)
-         .foregroundColor(Color.gray)
+
         }
+        .onAppear {
+            imageLoaderTopAds.load(topAd.image!)
+         }
         }.padding(.horizontal)
-     }.onAppear {
-        //self.contentTopAds.getListContentTopAds(from : 2)
-        getListContentTopAds(from: 2, responseData: { isresponseTopAds, error in
-            self.ads = (isresponseTopAds?.data)!
- //           self.forcount = (isresponseTopAds?.data!.count)!
-            if let restr = isresponseTopAds {
-                print("Button =====>\(restr.data!.count)")
-                
-            }
-        })
- }
-    .frame(width: UIScreen.main.bounds.width, height: 300)
+
+    }
+    .frame(width: UIScreen.main.bounds.width-32, height: 300)
     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     .padding(.bottom, 24)
-    
+
   }
-    
-   
-  }
+
 }
 
 //struct AppCarouselLargeBlock_Previews: PreviewProvider {

@@ -8,7 +8,7 @@ struct FavoriteTabView: View {
   var body: some View {
     NavigationView {
       ScrollView {
-        ChannelTopAdsBlock()
+        //ChannelTopAdsBlock()
         AppCarouselSmall1Block(title: "What to Play This Week")
         AppCarouselSmall1Block(title: "New Games We Love")
         AppCarouselMedium1Block(title: "Coming Soon", cellsNumber: 5)

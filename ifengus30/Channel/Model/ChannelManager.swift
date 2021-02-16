@@ -84,7 +84,6 @@ class SpecialManager :ObservableObject  {
                      if (decodedLists.code == 1){
                     DispatchQueue.main.async {
                         self.specials = decodedLists.data!
-                        print ("Ewwwrror")
                     }
                  } else {
                          print("data build error")

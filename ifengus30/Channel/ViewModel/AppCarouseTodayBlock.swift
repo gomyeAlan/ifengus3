@@ -9,26 +9,46 @@ import SwiftUI
 
 struct AppCarouseTodayBlock: View {
 
-   @ObservedObject var contentListManager = ContentListManager()
-
+    @ObservedObject var contentListManager = ContentListManager()
+    @StateObject var  jam = JSONArchivesModel()
+    @State private var archivepage: Int = 1
+    
       var body: some View {
+        
         VStack {
           VStack {
             //AppTopNewBlock()
 
             //头部广告轮播
-           ChannelTopAdsBlock()
+      
+                ChannelTopAdsBlock()
+            // }
             
             //列表
-            ForEach(contentListManager.contentLists){ contentList in
-                ContentListBlockSmall(contentLists: contentList)
-            }
             
-            
+            if jam.archiveists.isEmpty {
+                            ProgressView()
+                                .onAppear(perform: {
+                                    jam.fetchSessionData(cid: 2, page: self.archivepage)
+                                })
+                        } else {
+                            ForEach(jam.archiveists, id: \.self){ archive in
+                                ContentListBlockSmall(archive: archive)
+                                    .onAppear{
+                                        if self.jam.archiveists.isLastArchive(archive) {
+                                            self.archivepage += 1
+                                            jam.fetchSessionData(cid: 2, page: self.archivepage)
+                                        }
+                                    }
+                                //display fetched JSON data...
+                        }
+             }
             AppLarge3Block()
-          }.onAppear {
-            self.contentListManager.getListContent(from: 2)
+            }
         }
-        }
+//        .onAppear {
+//            self.contentListManager.getListContent(from: 2)
+
+//      }
       }
     }

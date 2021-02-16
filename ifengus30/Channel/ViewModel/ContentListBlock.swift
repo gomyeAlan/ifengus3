@@ -10,7 +10,11 @@ import SwiftUI
 
 struct ContentListBlock: View {
     
-    @ObservedObject var contentlistManager = ContentListManager()
+    @ObservedObject var contentListManager = ContentListManager()
+    @StateObject var  jam = JSONArchivesModel()
+    @State private var archivepage: Int = 1
+    
+    
     
     var channelID: Int
     var body: some View {
@@ -19,13 +23,32 @@ struct ContentListBlock: View {
     VStack {
       VStack {
         AppTopNewBlock()
-        ForEach(contentlistManager.contentLists){ contentList in
-              ContentListBlockSmall(contentLists: contentList)
+        if jam.archiveists.isEmpty {
+                    ProgressView()
+                            .onAppear(perform: {
+                                jam.fetchSessionData(cid: self.channelID, page: self.archivepage)
+                            })
+                    } else {
+                        ForEach(jam.archiveists, id: \.self){ archive in
+                            ContentListBlockSmall(archive: archive)
+                                .onAppear{
+                                    if self.jam.archiveists.isLastArchive(archive) {
+                                        self.archivepage += 1
+                                        jam.fetchSessionData(cid: self.channelID, page: self.archivepage)
+                                    }
+                                }
+                            //display fetched JSON data...
+                    }
          }
+        
+//        ForEach(contentlistManager.contentLists){ contentList in
+//     //         ContentListBlockSmall(contentLists: contentList)
+//         }
         AppLarge3Block()
-      }.onAppear {
-        self.contentlistManager.getListContent(from: channelID)
-    }
+      }
+//      .onAppear {
+// //       self.contentlistManager.getListContent(from: channelID)
+//    }
     }
   }
 }

@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ContentListBlockSmall: View {
     @StateObject private var imageLoader = CoverImageLoader()
-
-  let contentLists : ContentLists
-
+    var archive: ArchiveModel
+    
   var body: some View {
 
         VStack(alignment: .leading){
@@ -19,7 +18,7 @@ struct ContentListBlockSmall: View {
 
         if imageLoader.image != nil {
             
-            NavigationLink(destination: WebView( channelUrl: contentLists.fullurl)){
+            NavigationLink(destination: WebView( channelUrl: archive.fullurl)){
                          
             Image(uiImage: imageLoader.image!)
                 .resizable()
@@ -41,8 +40,8 @@ struct ContentListBlockSmall: View {
 
         VStack(alignment: .leading) {
          
-            NavigationLink(destination: WebView( channelUrl: contentLists.fullurl), label:{
-                Text("\(contentLists.title)")
+            NavigationLink(destination: WebView( channelUrl: archive.fullurl), label:{
+                Text("\(archive.title)")
                          })
             .font(.system(size: 20))
             
@@ -52,12 +51,12 @@ struct ContentListBlockSmall: View {
                 Image(systemName: "eye")
                     .foregroundColor(.white)
                     .imageScale(.small)
-                Text("\(contentLists.views)")
+                Text("\(archive.views)")
                     .foregroundColor(.white)
                 Image(systemName: "hand.thumbsup")
                     .foregroundColor(.white)
                     .imageScale(.small)
-                Text("\(contentLists.likes)")
+                Text("\(archive.likes)")
                     .foregroundColor(.white)
 
             }
@@ -72,7 +71,7 @@ struct ContentListBlockSmall: View {
      .clipShape(RoundedRectangle(cornerRadius: 20))
      .padding(.vertical, 8)
      .onAppear {
-        imageLoader.load(contentLists.image)
+        imageLoader.load(archive.image)
        // print (contentLists.image)
      }
   }

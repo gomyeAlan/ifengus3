@@ -18,7 +18,7 @@ struct TodayTabView: View {
     ScrollView {
         CustomSearchBar(text: $text)
         //setupCurrentDate(by: 0)
-         AppCarouseTodayBlock()
+        AppCarouseTodayBlock()
         
         //        ChannelTopAdsBlock()
         }
@@ -31,12 +31,6 @@ struct TodayTabView: View {
     //  }    .navigationViewStyle(StackNavigationViewStyle())
 
     }
-
-    
-//    func setupCurrentDate(by index: Int) -> AnyView {
-//      let date = Calendar.current.date(byAdding: .day, value: index, to: Date())
-//      return index == 0 ? AnyView(NavigationViewHeaderWithImageBlock(date: date!)) : AnyView(NavigationViewHeaderBlock(date: date!))
-//    }
 }
 
 struct TodayTabView_Previews: PreviewProvider {

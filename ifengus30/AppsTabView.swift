@@ -8,7 +8,7 @@ struct AppsTabView: View {
   var body: some View {
     NavigationView {
       ScrollView {
-        ChannelTopAdsBlock()
+        //ChannelTopAdsBlock()
         AppCarouselSmall1Block(title: "Get Ready for Sports")
         AppCarouselMedium2Block(title: "Apps With Free Trials", cellsNumber: 5)
         TopAppsCategoriesBlock()

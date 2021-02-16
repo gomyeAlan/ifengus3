@@ -6,75 +6,94 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+    @StateObject var jsonModel = JSONViewModel()
+    @Environment (\.managedObjectContext) var context
+    
+    
+    // Fetching Data From Core Data...
+    @FetchRequest(entity: Topadsinfo.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Topadsinfo.title, ascending: true)] ) var results : FetchedResults<Topadsinfo>
+    
 
     var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+        NavigationView {
+        VStack{
+                // checking if core data exists
+            if results.isEmpty{
+                
+                
+                if jsonModel.topAds.isEmpty{
+                    ProgressView()
+                    // fetching Data...
+                        .onAppear(perform: {
+                            jsonModel.fetchData(context: context)
+                        })
+                    // when array is clear indicator appears
+                    // as a result data is fetched again.
+                }
+                else{
+                    List(jsonModel.topAds ,id: \.self){topAd in
+                        // display fetched JSON Data...
+                        //CardView(video : video)
+                    }
+                    .listStyle(InsetGroupedListStyle())
+                }
+                
             }
-            .onDelete(perform: deleteItems)
+            else{
+                    List(results){video in
+                        // display fetched JSON Data...
+                        //CardView(fetchedData : video)
+                        Text(String(video.id))
+                    }
+                    .listStyle(InsetGroupedListStyle())
+                NavigationLink(destination: AppMainView()) {
+                    Text("进入首页")
+
+                        
+                }
+
+        
+
+            }
+            
         }
+       // .navigationTitle(!results.isEmpty ? "Fetched Core Data" : "Fetched JSON")
+      //  .navigationBarTitleDisplayMode(.inline)
+
+        
+        // refreshButton...
         .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
+            ToolbarItem(placement: .navigationBarTrailing){
+                Button(action: {
+                    // by clearing array data...
+                    // it will auto fetch all data again...
+                    
+                    //clearing data in core data...
+                    do{
+                        results.forEach { (video) in
+                            context.delete(video)
+                        }
+                        try context.save()
+                    }
+                    catch{
+                        print(error.localizedDescription)
+                    }
+                   
+                }, label: {
+                    Image(systemName: "arrow.clockwise.circle")
+                        .font(.title)
+                })
             }
+            
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
     }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+
+

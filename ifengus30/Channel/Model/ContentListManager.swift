@@ -161,25 +161,29 @@ class ContentSpecialManager :ObservableObject  {
 
 //建立一个广告集合
 
-struct TopAds: Codable, Identifiable {
-   public var id: Int
-   public var title: String
-   public var image: String
-   
-   enum CodingKeys: String, CodingKey {
-          case id = "id"
-          case title = "title"
-          case image = "image"
-   
-       }
-}
-
-struct isresponseTopAds: Codable {
-    let code: Int
-    let msg: String
-    let time: String
-    let data: [TopAds]?
-}
+//struct TopAds: Codable, Identifiable {
+//    public var id: Int
+//    public var channel_id: Int
+//    public var fullurl: String
+//    public var title: String
+//    public var image: String
+//    
+//   enum CodingKeys: String, CodingKey {
+//    case id = "id"
+//    case channel_id = "channel_id"
+//    case fullurl = "fullurl"
+//    case title = "title"
+//    case image = "image"
+//   
+//       }
+//}
+//
+//struct isresponseTopAds: Codable {
+//    let code: Int
+//    let msg: String
+//    let time: String
+//    let data: [TopAds]?
+//}
 //
 //class ContentTopAds :ObservableObject  {
 //
@@ -217,31 +221,31 @@ struct isresponseTopAds: Codable {
 //
 //    }
 //}
-
-
-func getListContentTopAds(from channelID:Int, responseData: @escaping (isresponseTopAds?, Error?) -> Void) {
-        let url = URL(string: "https://www.ifengus.com/api/cms/gettoparchives?limit=3&apitoken=hiRNzRjQ!x2x@H@X")!
-       URLSession.shared.dataTask(with: url) {(data,response,error) in
-           do {
-            if let d = data {
-                let decodedListstopAds = try JSONDecoder().decode(isresponseTopAds.self, from: d)
-                if (decodedListstopAds.code == 1){
-                    responseData(decodedListstopAds, nil)
-                    print ("----333---")
-                    print(decodedListstopAds.data?.count as Any)
-                } else {
-                    print("data build error")
-                }
-            } else {
-               print("No Data")
-            }
-           } catch let Err {
-               print ("Error")
-                responseData(nil, Err)
-           }
-       }
-       .resume()
-  
-    }
-
-//广告集合完成
+//
+//
+////func getListContentTopAds(from channelID:Int, responseData: @escaping (isresponseTopAds?, Error?) -> Void) {
+////        let url = URL(string: "https://www.ifengus.com/api/cms/gettoparchives?limit=3&apitoken=hiRNzRjQ!x2x@H@X")!
+////       URLSession.shared.dataTask(with: url) {(data,response,error) in
+////           do {
+////            if let d = data {
+////                let decodedListstopAds = try JSONDecoder().decode(isresponseTopAds.self, from: d)
+////                if (decodedListstopAds.code == 1){
+////                    responseData(decodedListstopAds, nil)
+////                    print ("----333---")
+////                    print(decodedListstopAds.data?.count as Any)
+////                } else {
+////                    print("data build error")
+////                }
+////            } else {
+////               print("No Data")
+////            }
+////           } catch let Err {
+////               print ("Error")
+////                responseData(nil, Err)
+////           }
+////       }
+////       .resume()
+////
+////    }
+//
+////广告集合完成

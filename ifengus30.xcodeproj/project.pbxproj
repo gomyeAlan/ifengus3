@@ -23,6 +23,8 @@
 		155499A625D327CF00B597DD /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155499A525D327CF00B597DD /* SignupView.swift */; };
 		155499A925D332E200B597DD /* UserEntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155499A825D332E200B597DD /* UserEntranceView.swift */; };
 		155499B025D3424100B597DD /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 155499AF25D3424100B597DD /* Config.xcconfig */; };
+		1584CBEF25D9863D005C1F98 /* JSONViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584CBEE25D9863D005C1F98 /* JSONViewModel.swift */; };
+		1584CBF325DA2FD6005C1F98 /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584CBF225DA2FD6005C1F98 /* ArchiveModel.swift */; };
 		1597217925CFB51D003EAA65 /* ifengus30App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597217825CFB51D003EAA65 /* ifengus30App.swift */; };
 		1597217B25CFB51D003EAA65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597217A25CFB51D003EAA65 /* ContentView.swift */; };
 		1597217D25CFB520003EAA65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1597217C25CFB520003EAA65 /* Assets.xcassets */; };
@@ -99,6 +101,8 @@
 		155499A525D327CF00B597DD /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		155499A825D332E200B597DD /* UserEntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntranceView.swift; sourceTree = "<group>"; };
 		155499AF25D3424100B597DD /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		1584CBEE25D9863D005C1F98 /* JSONViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewModel.swift; sourceTree = "<group>"; };
+		1584CBF225DA2FD6005C1F98 /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		1597217525CFB51D003EAA65 /* ifengus30.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ifengus30.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1597217825CFB51D003EAA65 /* ifengus30App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifengus30App.swift; sourceTree = "<group>"; };
 		1597217A25CFB51D003EAA65 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 				1597220525D0A3D2003EAA65 /* ChannelDate.swift */,
 				1597220425D0A3D2003EAA65 /* ListDate.swift */,
 				1554993E25D1CBC900B597DD /* ImagesManager.swift */,
+				1584CBEE25D9863D005C1F98 /* JSONViewModel.swift */,
+				1584CBF225DA2FD6005C1F98 /* ArchiveModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				159721E525CFBAD2003EAA65 /* SingleLineIconAndButtonView.swift in Sources */,
 				159721ED25CFBAD2003EAA65 /* AppShape.swift in Sources */,
 				159721E725CFBAD2003EAA65 /* RecentlyUpdatedAppsList.swift in Sources */,
+				1584CBEF25D9863D005C1F98 /* JSONViewModel.swift in Sources */,
 				159721B725CFBA68003EAA65 /* AppCarouselSmall1Block.swift in Sources */,
 				159721E425CFBAD2003EAA65 /* DefaultButton.swift in Sources */,
 				155499A625D327CF00B597DD /* SignupView.swift in Sources */,
@@ -577,6 +584,7 @@
 				159721C625CFBA68003EAA65 /* AppSmall2Block.swift in Sources */,
 				159721BC25CFBA68003EAA65 /* NavigationViewHeaderBlock.swift in Sources */,
 				159721BD25CFBA68003EAA65 /* SectionHeaderExtendedBlock.swift in Sources */,
+				1584CBF325DA2FD6005C1F98 /* ArchiveModel.swift in Sources */,
 				159721FB25CFBB03003EAA65 /* AccountView.swift in Sources */,
 				159721E825CFBAD2003EAA65 /* ItemDetailsLabel.swift in Sources */,
 				159721F925CFBB03003EAA65 /* DefaultView.swift in Sources */,
