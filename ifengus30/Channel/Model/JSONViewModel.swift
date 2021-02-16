@@ -10,14 +10,14 @@ import CoreData
 
 //建立一个广告集合
 
-struct TopAds: Codable, Hashable{
+struct TopAds: Codable, Identifiable, Hashable{
     var id: Int
     var url: String
     var title: String
     var image: String
 }
 
-struct responsewebdata: Codable {
+struct responsTopadsData: Codable {
     let code: Int
     let msg: String
     let time: String
@@ -78,11 +78,12 @@ class JSONViewModel: ObservableObject {
             // fetching JSON Data...
             do {
 
-                let archives = try JSONDecoder().decode(responsewebdata.self, from: jsonData)
+                let archives = try JSONDecoder().decode(responsTopadsData.self, from: jsonData)
                 if archives.code == 1 {
                     DispatchQueue.main.async {
                     self.topAds = archives.data!
-                    self.saveData(context: context)
+//                        print("fetch update\(archives.data?.first?.title)")
+//                    self.saveData(context: context)
 
                     }
           
