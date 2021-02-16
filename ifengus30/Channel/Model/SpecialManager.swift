@@ -47,6 +47,6 @@ class SpecialManager: ObservableObject  {
             } catch {
                 print ("Error")
             }
-        }.resume()
+        }.resume() 
     }
 }

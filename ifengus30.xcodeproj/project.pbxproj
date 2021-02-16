@@ -84,6 +84,8 @@
 		1597220625D0A3D2003EAA65 /* ListDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597220425D0A3D2003EAA65 /* ListDate.swift */; };
 		1597220725D0A3D2003EAA65 /* ChannelDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597220525D0A3D2003EAA65 /* ChannelDate.swift */; };
 		1597220B25D0A484003EAA65 /* ContentListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597220A25D0A484003EAA65 /* ContentListManager.swift */; };
+		CF4C434F25DBA2EA00090ACC /* SpecialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4C434E25DBA2EA00090ACC /* SpecialManager.swift */; };
+		CFA8696225DB928800350F01 /* CommonFuncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8696125DB928800350F01 /* CommonFuncModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +168,8 @@
 		1597220425D0A3D2003EAA65 /* ListDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDate.swift; sourceTree = "<group>"; };
 		1597220525D0A3D2003EAA65 /* ChannelDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDate.swift; sourceTree = "<group>"; };
 		1597220A25D0A484003EAA65 /* ContentListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListManager.swift; sourceTree = "<group>"; };
+		CF4C434E25DBA2EA00090ACC /* SpecialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialManager.swift; sourceTree = "<group>"; };
+		CFA8696125DB928800350F01 /* CommonFuncModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFuncModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,6 +456,8 @@
 				1584CBEE25D9863D005C1F98 /* JSONViewModel.swift */,
 				1584CBF225DA2FD6005C1F98 /* ArchiveModel.swift */,
 				1586295325DB80D400FAD117 /* JSONArchiveModel.swift */,
+				CFA8696125DB928800350F01 /* CommonFuncModel.swift */,
+				CF4C434E25DBA2EA00090ACC /* SpecialManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -543,6 +549,7 @@
 				153CDE3425D765CE0066F115 /* SpecialListBlockSmall.swift in Sources */,
 				1597218E25CFB9BB003EAA65 /* AppMainView.swift in Sources */,
 				159721E325CFBAD2003EAA65 /* TryButton.swift in Sources */,
+				CFA8696225DB928800350F01 /* CommonFuncModel.swift in Sources */,
 				1597220625D0A3D2003EAA65 /* ListDate.swift in Sources */,
 				155499A925D332E200B597DD /* UserEntranceView.swift in Sources */,
 				159721BE25CFBA68003EAA65 /* NavigationViewHeaderWithImageBlock.swift in Sources */,
@@ -600,6 +607,7 @@
 				159721C525CFBA68003EAA65 /* AppMedium1Block.swift in Sources */,
 				1586295425DB80D400FAD117 /* JSONArchiveModel.swift in Sources */,
 				1597217925CFB51D003EAA65 /* ifengus30App.swift in Sources */,
+				CF4C434F25DBA2EA00090ACC /* SpecialManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
